@@ -7,32 +7,41 @@
   <meta name="description" content="Schau was läuft" />
   <meta name="author" content="Valerie Albert" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <script src="./scripts/hls.js"></script>
+  <script src="scripts/strings.js"></script>
+  <script src="scripts/px-video.js"></script>
 </head>
 
 <body>
-    <div class="px-video-container" id="myvid">
-        <video poster="media/poster_PayPal_Austin2.jpg" class="px-video" controls>
+    <h1>Vor dem HTML Tag</h1>
+    <video id="video"></video>
+    <h2>Nach dem HTML Tag</h2>
+<script>
+  if (Hls.isSupported()) {
+    var video = document.getElementById('video');
+    var hls = new Hls();
+    // bind them together
+    hls.attachMedia(video);
+    hls.on(Hls.Events.MEDIA_ATTACHED, function () {
+      console.log('video and hls.js are now bound together !');
+      hls.loadSource('http://192.168.1.141:80/hls/stream.m3u8');
+      hls.on(Hls.Events.MANIFEST_PARSED, function (event, data) {
+        console.log(
+          'manifest loaded, found ' + data.levels.length + ' quality level'
+        );
+      });
+    });
+  }
+</script>
+</body>
+
+
+
+<!--
+<video poster="media/poster_PayPal_Austin2.jpg" class="px-video" controls>
             <!-- video files -->
             <source src="http://192.168.1.141:80/hls/stream.m3u8" type="application/x-mpegURL" />
            <!-- <source src="https://www.paypalobjects.com/webstatic/mktg/videos/PayPal_AustinSMB_baseline.webm" type="video/webm" /> -->
         </video>
-
-  </div>
-  <!-- end page wrapper container -->
-  <script src="scripts/strings.js"></script>
-  <script src="scripts/px-video.js"></script>
-
-  <script>
-  // Initialize
-new InitPxVideo({
-  videoId: "myvid",
-  captionsOnDefault: true,
-  seekInterval: 20,
-  videoTitle: "NGINX Livestream",
-  debug: true
-});
-</script>
-
-</body>
-
+-->
 </html>
