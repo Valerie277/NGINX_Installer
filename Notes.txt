@@ -1,0 +1,26 @@
+
+
+
+## GeoIP Library
+apt get install libgeoip-dev -y
+
+
+./configure --sbin-path=/usr/bin/nginx --conf-path=/etc/nginx/nginx.conf --error-log-path=/var/log/nginx/error.log --http-log-path=/var/log/nginx/accesss.log --with-pcre --pid-path=/var/run/nginx.pid --add-module=/home/valerie/install_NGINX/iplocation_module/ip2location-nginx --add-module=/home/valerie/install_NGINX/vod/nginx-vod-module --add-module=/home/valerie/install_NGINX/vod/nginx-rtmp-module --with-http_mp4_module --with-http_secure_link_module --with-http_geoip_module --with-http_ssl_module --build=RTMP_for_Valerie_Albert_BA
+
+
+
+
+./configure --sbin-path=/usr/bin/nginx --conf-path=/etc/nginx/nginx.conf --error-log-path=/var/log/nginx/error.log --http-log-path=/var/log/nginx/accesss.log --with-pcre --pid-path=/var/run/nginx.pid 
+--add-module=/home/valerie/install_NGINX/iplocation_module/ip1location-nginx
+--add-module=/home/valerie/install_NGINX/vod/nginx-vod-module
+--add-module=/home/valerie/install_NGINX/vod/nginx-rtmp-module
+--with-http_mp4_module --with-http_secure_link_module --with-http_geoip_modul
+--with-http_ssl_module
+
+
+
+ngx_http_autoindex_module
+ngx_http_hls_module
+ngx_http_geoip_module
+ngx_http_secure_link_module
+nginx-rtmp-module
