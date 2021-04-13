@@ -10,12 +10,18 @@
   <script src="./scripts/hls.js"></script>
   <script src="scripts/strings.js"></script>
   <script src="scripts/px-video.js"></script>
+  <link rel="stylesheet" href="./stylesheets/styles.css">
+
+  <style></style>
 </head>
 
 <body>
-    <h1>Vor dem HTML Tag</h1>
-    <video id="video"></video>
-    <h2>Nach dem HTML Tag</h2>
+    <div class="Main-Content">
+        <h1>Das läuft gerade auf dem Server!</h1>
+        <video id="video" controls="true" autoplay="true"></video>
+        
+    </div>
+    
 <script>
   if (Hls.isSupported()) {
     var video = document.getElementById('video');
@@ -29,19 +35,12 @@
         console.log(
           'manifest loaded, found ' + data.levels.length + ' quality level'
         );
+        hls.play()
       });
     });
+    video.play();
   }
 </script>
 </body>
 
-
-
-<!--
-<video poster="media/poster_PayPal_Austin2.jpg" class="px-video" controls>
-            <!-- video files -->
-            <source src="http://192.168.1.141:80/hls/stream.m3u8" type="application/x-mpegURL" />
-           <!-- <source src="https://www.paypalobjects.com/webstatic/mktg/videos/PayPal_AustinSMB_baseline.webm" type="video/webm" /> -->
-        </video>
--->
 </html>
