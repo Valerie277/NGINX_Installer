@@ -33,3 +33,20 @@ nginx-rtmp-module
 
 FFMPEG Aufnhame:
 ffmpeg -i /mnt/hls/stream.m3u8 -c copy -bsf:a aac_adtstoasc /home/valerie/stream/output.mp4
+
+# In Ubuntu
+############################
+
+./configure 
+--sbin-path=/usr/bin/nginx 
+--conf-path=/etc/nginx/nginx.conf 
+--error-log-path=/var/log/nginx/error.log 
+--http-log-path=/var/log/nginx/accesss.log 
+--with-pcre --pid-path=/var/run/nginx.pid 
+--add-module=../ip2location-nginx-master  
+--add-module=../nginx-rtmp-module-master 
+--with-http_mp4_module 
+--with-http_secure_link_module 
+--with-http_geoip_module 
+--with-http_ssl_module 
+--build=RTMP_for_Valerie_Albert_BA
