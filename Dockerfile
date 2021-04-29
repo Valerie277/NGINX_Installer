@@ -4,13 +4,13 @@ RUN apt-get update && apt-get upgrade -y
 
 ## Install libraries
 
-RUN apt-get install libgeoip-dev \
-    apt install git -y \
-    git clone https://github.com/Valerie277/NGINX_Installer.git
+RUN apt-get install libgeoip-dev 
+RUN apt install git -y 
+RUN git clone https://github.com/Valerie277/NGINX_Installer.git
 
 RUN cd ./NGINX_installer/Build_NGINX/
 
-./configure \
+RUN ./configure \
 --sbin-path=/usr/bin/nginx \
 --conf-path=/etc/nginx/nginx.conf \
 --error-log-path=/var/log/nginx/error.log \
