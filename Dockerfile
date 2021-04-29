@@ -5,8 +5,8 @@ RUN apt-get update && apt-get upgrade -y
 ## Install libraries
 
 RUN apt-get install libgeoip-dev -y
-RUN apt install build-essentials -y
-RUN apt install git -y 
+RUN apt-get install build-essential -y
+RUN apt-get install git -y 
 RUN git clone https://github.com/Valerie277/NGINX_Installer.git
 
 RUN cd ./NGINX_installer/Build_NGINX/
