@@ -7,9 +7,9 @@ RUN apt-get update && apt-get upgrade -y
 RUN apt-get install libgeoip-dev -y
 RUN apt-get install build-essential -y
 RUN apt-get install git -y 
-RUN git clone https://github.com/Valerie277/NGINX_Installer.git
+RUN git clone https://github.com/Valerie277/NGINX_Installer.git ./TMP/
 
-RUN cd ./NGINX_Installer/Build_NGINX/nginx-1.20.0/
+RUN cd ./TMP/Build_NGINX/nginx-1.20.0/
 RUN chmod +x ./configure
 
 RUN ./configure \
